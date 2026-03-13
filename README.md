@@ -1,6 +1,6 @@
 <h1 align="center">Hi, I'm Pranav Sutar 👋</h1>
 <p align="center">
-  <b>Computer Science @ IIT Tirupati</b> | <b> Developer @ ZS Associates</b><br>
+  <b>CSE Alumni @ IIT Tirupati  </b> | <b> Developer @ ZS Associates</b><br>
   Full Stack • Machine Learning • Data Engineering • Python
 </p>
 
@@ -15,7 +15,7 @@
 ### 🧑‍💻 About Me
 
 🎓 B.Tech in Computer Science from **IIT Tirupati**  
-💼 1+ year experience in Full Stack, ML, Automation  
+💼 1.8+ years of experience in Full Stack, ML, Automation  
 ⚙️ Proficient in React, Python, MongoDB, Flask, AWS  
 📌 Focused on clean code, SDLC, scalable systems  
 🔍 Exploring roles in Web Development, ML, Python, Automation
@@ -24,13 +24,13 @@
 
 ### 💼 Work Experience
 
-**Software Engineer — ZS Associates**  
+**Data Engineer - ZS Associates**  
 *Jun 2024 – Present | Pune, India*  
 - Built full-stack issue-tracker with React + Azure Databricks, reducing debug time by 40%  
 - Integrated MongoDB, APIs, and CI/CD pipelines  
 - **Stack:** React, Python, Express, Azure, AWS, Linux
 
-**SDE Intern — GEP Worldwide**  
+**SDE Intern - GEP Worldwide**  
 *May 2023 – Jul 2023 | Mumbai, India*  
 - Fixed 14+ UI/UX bugs to improve accessibility (WCAG compliance)  
 - **Stack:** Angular, JavaScript, CI/CD, HTML/CSS, Linux
