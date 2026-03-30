@@ -15,10 +15,10 @@
 ### 🧑‍💻 About Me
 
 🎓 B.Tech in Computer Science from **IIT Tirupati**  
-💼 1.8+ years of experience in Full Stack, ML, Automation  
+💼 1.8+ years of experience in Data Engineering, DS/ML, Web Dev  
 ⚙️ Proficient in React, Python, MongoDB, Flask, AWS  
 📌 Focused on clean code, SDLC, scalable systems  
-🔍 Exploring roles in Web Development, ML, Python, Automation
+🔍 Exploring roles in Web Development, DS, ML, Python
 
 ---
 
