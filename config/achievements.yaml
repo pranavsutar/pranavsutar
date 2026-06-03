@@ -1,0 +1,84 @@
+# Achievements — supporting evidence only, no inflated claims
+achievements:
+  - title: "B.Tech in Computer Science — IIT Tirupati"
+    category: "education"
+    date: "2022"
+    description: "Coursework in algorithms, databases, machine learning, and computer vision."
+    url: ""
+
+  - title: "Object Detection in Satellite Imagery"
+    category: "publication"
+    date: "2022"
+    description: "Co-authored a conference paper studying the effect of data augmentation strategies on YOLOv5 detection performance for satellite imagery."
+    url: ""
+
+  - title: "Internal Hackathon — Data Quality"
+    category: "award"
+    date: "2024"
+    description: "Built a prototype that uses an LLM to generate human-readable summaries of data quality check failures."
+    url: ""
+
+  - title: "AWS Cloud Practitioner"
+    category: "certification"
+    date: "2023"
+    description: "Foundational AWS certification."
+    url: ""
+
+# AI & Research experiments — curiosity and exploration, not expertise
+experiments:
+  - title: "Object Detection Research (Undergraduate)"
+    description: |
+      Undergraduate thesis work on YOLOv5 for satellite imagery.
+      Compared augmentation strategies (mosaic, mixup, copy-paste)
+      on custom-annotated datasets. Some augmentations improved recall
+      but hurt precision — the tradeoffs were the interesting part.
+      Co-authored a conference paper based on the findings.
+    technologies:
+      - "PyTorch"
+      - "OpenCV"
+      - "Python"
+    demo_url: ""
+    github_url: "https://github.com/alexchen/satellite-detection"
+
+  - title: "RAG Prototype for Document Search"
+    description: |
+      Built a small retrieval-augmented generation pipeline to search
+      a collection of markdown documents. Chunks text, embeds with
+      sentence-transformers, retrieves with FAISS, generates answers
+      with GPT-3.5. Works on small document sets. Retrieval quality
+      degrades on longer or more ambiguous queries.
+    technologies:
+      - "LangChain"
+      - "FAISS"
+      - "sentence-transformers"
+      - "Python"
+    demo_url: ""
+    github_url: "https://github.com/alexchen/rag-docs"
+
+  - title: "Embedding Drift Detection (Prototype)"
+    description: |
+      Explored how to detect when embedding distributions shift over
+      time. Implemented KL divergence and MMD tests on synthetic
+      datasets with injected drift. The detection worked on obvious
+      shifts but missed gradual drift — still learning how to set
+      meaningful thresholds.
+    technologies:
+      - "Scikit-learn"
+      - "NumPy"
+      - "Python"
+    demo_url: ""
+    github_url: "https://github.com/alexchen/embedding-drift"
+
+  - title: "SQL Generation with Fine-Tuned LLM"
+    description: |
+      Experimented with LoRA fine-tuning of CodeLlama-7B on public
+      text-to-SQL datasets. The fine-tuned model handled simple
+      queries well but struggled with joins and subqueries. Helped
+      me understand the gap between demo-quality and usable-quality
+      in LLM applications.
+    technologies:
+      - "PyTorch"
+      - "LoRA"
+      - "Hugging Face"
+    demo_url: ""
+    github_url: "https://github.com/alexchen/sql-llm"

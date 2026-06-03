@@ -1,0 +1,19 @@
+links:
+  - platform: "GitHub"
+    url: "https://github.com/alexchen"
+    icon: "github"
+
+  - platform: "LinkedIn"
+    url: "https://linkedin.com/in/alexchen"
+    icon: "linkedin"
+
+  - platform: "Email"
+    url: "mailto:alex@example.com"
+    icon: "email"
+
+contact:
+  heading: "Let's Talk"
+  subheading: "Looking for data engineering or ML roles. Open to full-time positions and interesting collaborations."
+  email: "alex@example.com"
+  cta_label: "Send an Email"
+  cta_resume_label: "Download Resume"

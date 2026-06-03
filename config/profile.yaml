@@ -1,0 +1,92 @@
+name: "Alex Chen"
+first_name: "Alex"
+title: "Data Engineer"
+tagline: "Data pipelines at work. ML experiments after hours."
+
+hero_headline: "Data engineering with an ML itch."
+hero_subheadline: "I build and maintain data pipelines, automate quality checks, and set up monitoring. Outside work, I experiment with anomaly detection, forecasting, and LLM tooling."
+hero_cta_label: "See What I've Built"
+hero_cta_target: "Work"
+status_badge: "Open to opportunities"
+
+bio: |
+  I studied Computer Science at IIT Tirupati and have been working as a
+  Data Engineer for about two years. My day-to-day involves writing
+  ingestion pipelines, setting up data quality checks, and building
+  monitoring dashboards.
+
+  On my own time, I've been exploring ML — trying out anomaly detection
+  on time-series data, building a small forecasting pipeline, and
+  experimenting with LangChain and LLM APIs. I'm looking for roles
+  where data engineering and ML work are closer together.
+
+short_bio: "Data Engineer exploring ML on the side."
+
+avatar: "assets/avatar.png"
+resume_path: "assets/resume.pdf"
+
+location: "India"
+email: "alex@example.com"
+
+highlights:
+  - "Data Pipelines"
+  - "Data Quality"
+  - "Python"
+  - "AWS"
+  - "ML Exploration"
+
+snapshot:
+  - icon: "cert"
+    label: "Education"
+    value: "B.Tech CSE, IIT Tirupati"
+  - icon: "briefcase"
+    label: "Experience"
+    value: "~2 years in Data Engineering"
+  - icon: "database"
+    label: "Day-to-Day"
+    value: "Pipelines, quality checks, monitoring"
+  - icon: "brain"
+    label: "Exploring"
+    value: "Anomaly detection, forecasting, LLMs"
+  - icon: "flask"
+    label: "Academic Research"
+    value: "Object detection (undergraduate thesis)"
+
+stats: []
+
+# Skills — grouped by actual exposure, not aspirational
+skills:
+  - category: "Data Engineering"
+    icon: "database"
+    items:
+      - "Python"
+      - "SQL"
+      - "Apache Airflow"
+      - "dbt"
+      - "Pandas"
+
+  - category: "ML & Experimentation"
+    icon: "brain"
+    items:
+      - "Scikit-learn"
+      - "PyTorch (learning)"
+      - "NumPy"
+      - "Streamlit"
+      - "LangChain (experimenting)"
+
+  - category: "Cloud & Tooling"
+    icon: "cloud"
+    items:
+      - "AWS (S3, Glue, Lambda)"
+      - "Docker"
+      - "GitHub Actions"
+      - "PostgreSQL"
+
+  - category: "Exposure"
+    icon: "layers"
+    items:
+      - "FastAPI"
+      - "Flask"
+      - "MongoDB"
+      - "Metabase"
+      - "Great Expectations"

@@ -1,0 +1,82 @@
+# Projects — problem / approach / what I built / what I learned
+# No fabricated metrics. Only state what actually exists.
+projects:
+  - title: "Data Quality Checks"
+    rank: 1
+    problem: "Data issues were reaching dashboards before anyone noticed — schema changes, missing fields, unexpected nulls."
+    approach: "Added automated validation steps to existing Airflow pipelines using Great Expectations. Checks run after each ingestion and send Slack alerts on failures."
+    built: "A set of reusable quality check modules integrated into the pipeline DAGs. Covers schema validation, null rate thresholds, and row count monitoring."
+    learned: "Learned how much effort goes into defining 'good enough' thresholds. Most of the work was understanding the data, not writing the checks."
+    technologies:
+      - "Python"
+      - "Great Expectations"
+      - "Airflow"
+      - "Slack API"
+    github_url: "https://github.com/alexchen/dq-checks"
+    demo_url: ""
+    image: ""
+    featured: true
+
+  - title: "Time-Series Anomaly Detection"
+    rank: 2
+    problem: "Wanted to explore unsupervised anomaly detection on time-series data without labeled examples."
+    approach: "Implemented Isolation Forest and an LSTM autoencoder on public sensor datasets. Compared how each method handles different anomaly types (point, contextual, collective)."
+    built: "A Streamlit dashboard that visualizes detected anomalies across both methods side-by-side. Runs on sample datasets."
+    learned: "Isolation Forest was surprisingly effective for point anomalies. The LSTM autoencoder was harder to tune and sensitive to sequence length. Neither method worked well on subtle contextual anomalies."
+    technologies:
+      - "PyTorch"
+      - "Scikit-learn"
+      - "Streamlit"
+      - "Pandas"
+    github_url: "https://github.com/alexchen/anomaly-detection"
+    demo_url: ""
+    image: ""
+    featured: true
+
+  - title: "Demand Forecasting Prototype"
+    rank: 3
+    problem: "Wanted to learn time-series forecasting by building an end-to-end pipeline, not just a notebook."
+    approach: "Used Prophet and LightGBM on a public retail dataset. Wrote feature engineering (lag features, rolling stats, calendar effects) and evaluation scripts. Wrapped it in an Airflow DAG."
+    built: "A scheduled pipeline that generates weekly forecasts and pushes results to a Streamlit dashboard. Not production — a learning project."
+    learned: "Feature engineering mattered more than model choice. Prophet was easier to get started with but LightGBM gave better results once features were right. Learned how to structure ML code as a pipeline rather than a notebook."
+    technologies:
+      - "Prophet"
+      - "LightGBM"
+      - "Airflow"
+      - "Python"
+      - "Streamlit"
+    github_url: "https://github.com/alexchen/demand-forecast"
+    demo_url: ""
+    image: ""
+    featured: true
+
+  - title: "LLM Log Analyzer"
+    rank: 4
+    problem: "Debugging Airflow task failures meant reading through long log outputs manually."
+    approach: "Experimented with LangChain to build an agent that reads log text and attempts to identify the error and suggest a fix. Uses a small set of historical failure examples as retrieval context."
+    built: "A CLI prototype that takes a task log file and returns a summary of the likely issue. Works on common failure patterns (missing files, permission errors, timeout). Struggles with novel errors."
+    learned: "LLM output quality depends heavily on how the log is chunked and what context is provided. Retrieval over past failures helped, but the prototype is fragile — it works on patterns it has seen before."
+    technologies:
+      - "LangChain"
+      - "OpenAI API"
+      - "Python"
+    github_url: "https://github.com/alexchen/log-analyzer"
+    demo_url: ""
+    image: ""
+    featured: false
+
+  - title: "Config-Driven ETL Framework"
+    rank: 5
+    problem: "Adding a new data source to our pipelines required copying and modifying an existing DAG, which led to inconsistencies."
+    approach: "Created a framework where new sources are defined in a YAML config file. The framework generates the extraction, validation, and loading steps from the config."
+    built: "A Python package used internally. New data sources are onboarded by writing a config file instead of a full DAG."
+    learned: "Config-driven approaches trade flexibility for consistency. Some sources needed custom logic that didn't fit the config model, so I had to add an escape hatch for custom Python hooks."
+    technologies:
+      - "Python"
+      - "Airflow"
+      - "AWS S3"
+      - "PostgreSQL"
+    github_url: "https://github.com/alexchen/etl-framework"
+    demo_url: ""
+    image: ""
+    featured: false

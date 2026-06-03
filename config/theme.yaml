@@ -1,0 +1,44 @@
+colors:
+  primary: "#6C63FF"
+  primary_light: "#8B83FF"
+  primary_dark: "#5A52D5"
+  secondary: "#00D4AA"
+  secondary_light: "#33DDBB"
+  accent: "#FF6B6B"
+  background: "#0A0E14"
+  surface: "#12161F"
+  surface_light: "#1A1F2E"
+  surface_hover: "#222838"
+  border: "#2A2F3D"
+  border_light: "#353B4A"
+  text_primary: "#E6EDF3"
+  text_secondary: "#8B949E"
+  text_muted: "#6E7681"
+  gradient_start: "#6C63FF"
+  gradient_end: "#00D4AA"
+
+fonts:
+  heading: "'Inter', sans-serif"
+  body: "'Inter', sans-serif"
+  mono: "'JetBrains Mono', monospace"
+
+# Section titles — reordered for recruiter effectiveness
+section_titles:
+  hero: "Home"
+  experience: "Experience"
+  projects: "Work"
+  experiments: "AI & Research"
+  skills: "Skills"
+  achievements: "Achievements"
+  resume: "Resume"
+  contact: "Contact"
+
+nav_icons:
+  hero: "home"
+  experience: "briefcase"
+  projects: "code"
+  experiments: "flask"
+  skills: "layers"
+  achievements: "award"
+  resume: "file"
+  contact: "email"

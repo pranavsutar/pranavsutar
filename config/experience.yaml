@@ -1,0 +1,44 @@
+# Work experience — factual responsibilities, no fabricated metrics
+entries:
+  - role: "Data Engineer"
+    company: "Acme Analytics"
+    duration: "2023 – Present"
+    description: |
+      Write and maintain data ingestion pipelines that pull from APIs,
+      databases, and event streams into a central warehouse. Set up
+      automated data quality checks — schema validation, null rate
+      monitoring, volume anomaly alerts. Build and maintain monitoring
+      dashboards for the data team.
+    technologies:
+      - "Python"
+      - "Airflow"
+      - "dbt"
+      - "AWS"
+      - "PostgreSQL"
+
+  - role: "Data Engineering Intern"
+    company: "StartupXYZ"
+    duration: "2022 – 2023"
+    description: |
+      Helped set up ETL infrastructure — wrote Python scripts to ingest
+      data from third-party APIs, transform it, and load into Redshift.
+      Built an internal dashboard in Metabase for the product team to
+      review daily metrics.
+    technologies:
+      - "Python"
+      - "AWS Glue"
+      - "Redshift"
+      - "Metabase"
+
+  - role: "Undergraduate Researcher"
+    company: "IIT Tirupati — CS Department"
+    duration: "2021 – 2022"
+    description: |
+      Worked on object detection for satellite imagery under faculty
+      supervision. Implemented YOLOv5 variants and ran experiments
+      comparing data augmentation strategies on custom-annotated
+      datasets. Co-authored a conference paper based on the findings.
+    technologies:
+      - "PyTorch"
+      - "OpenCV"
+      - "Python"
