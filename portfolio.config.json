@@ -1,9 +1,9 @@
 {
   "personal": {
     "name": "Pratik Modi",
-    "title": "Data and Full Stack Engineer",
+    "title": "Data Engineer | Databricks, PySpark & Azure",
     "greeting": "Welcome to my 3D space.",
-    "subtitle": "Data and full stack engineer",
+    "subtitle": "Data Engineer | Databricks & PySpark",
     "tagline1": "portfolio",
     "tagline2": "",
     "location": "Pune, Maharashtra, India",
@@ -11,39 +11,38 @@
     "phone": "+91 93228 48562",
     "linkedin": "https://www.linkedin.com/in/pratik-modi-11ba02283",
     "github": "https://github.com/PratikModi22",
-    "summary": "Results-driven final-year B.Tech (IT) student with hands-on experience in SQL, Python, data analytics, and business intelligence reporting. Skilled at translating complex business requirements into robust technical solutions, working with large-scale datasets, and communicating data-driven insights to stakeholders. Currently interning at Yardi Systems writing SQL stored procedures, packages, and reports. 2× State-Level Hackathon Winner."
+    "summary": "Recent B.Tech (IT) graduate (2026) with internship experience in SQL, Python, and enterprise software, now specializing in data engineering — PySpark, Databricks, Azure, and modern Lakehouse / Medallion Architecture. Production SQL engineering and data quality optimization experience from Yardi Systems, Pune. 2× State-Level Hackathon Winner."
   },
   "certifications": [
-    "Google Cloud SkillBoost (GCP)",
-    "Microsoft Learn (Azure & AI Basics)",
+    "Databricks Badges (Lakehouse & Medallion)",
+    "Google Cloud SkillBoost",
+    "Microsoft Learn (Azure & AI)",
+    "Infosys Springboard",
     "Postman API Fundamentals",
-    "Infosys Springboard (Python & Data Analytics)",
     "Udemy (SQL & Python)",
-    "2× State-Level Hackathon Winner",
-    "Forage Virtual Internships",
-    "Let's Upgrade"
+    "2× State-Level Hackathon Winner"
   ],
   "education": {
     "degree": "Bachelor of Technology — Information Technology",
-    "institution": "MGM University – IICT, Chh. Sambhajinagar",
-    "cgpa": "7.9 / 10.0",
+    "institution": "MGM University – IICT, Chh. Sambhajinagar, Maharashtra",
+    "cgpa": "7.89 / 10.0",
     "period": "2022 – 2026"
   },
   "skills": {
-    "languages": [
-      "SQL", "Python", "JavaScript", "HTML", "CSS", "React (Tailwind, Bootstrap)"
+    "data_engineering": [
+      "PySpark", "Databricks (Badges)", "Medallion Architecture", "Delta Lake", "ETL Pipelines", "Data Warehousing", "Unity Catalog"
     ],
-    "data_and_bi": [
-      "Pandas", "NumPy", "Matplotlib", "Seaborn", "Excel", "EDA", "Power BI", "SSMS", "SQL Profiler"
+    "cloud": [
+      "Microsoft Azure", "Azure Databricks", "Azure Data Factory (ADF)", "Azure Data Lake (ADLS Gen2)", "Blob Storage", "GCP (Basics)"
     ],
-    "databases": [
-      "MySQL", "PostgreSQL", "SQL Server", "Supabase", "RDBMS Design", "Query Optimization", "Stored Procedures", "CTEs"
+    "languages_and_dbs": [
+      "SQL (SP, CTE, Triggers, Cursors)", "Python (Pandas, NumPy)", "MySQL", "PostgreSQL", "SQL Server"
+    ],
+    "modeling_and_bi": [
+      "Star Schema", "Kimball Modeling", "SCD Type 2", "RDBMS Design", "EDA", "Power BI (Basics)", "Excel", "Streamlit"
     ],
     "tools": [
-      "GitHub", "Postman", "Jupyter Notebook", "n8n", "Odoo CRM", "WordPress", "Shopify"
-    ],
-    "soft_skills": [
-      "Client Communication", "Agile Collaboration", "Stakeholder Reporting", "Problem-Solving"
+      "Git", "GitHub", "Postman", "Jupyter Notebook", "n8n", "VS Code", "Agile / Scrum"
     ]
   },
   "achievements": [
@@ -54,10 +53,16 @@
       "badge": "2× State Champion"
     },
     {
+      "title": "Data Engineer Intern at V4C.ai",
+      "category": "Databricks & Medallion Architecture",
+      "description": "Completed 30 hands-on Medallion Architecture labs on Databricks using PySpark, Delta Lake, and SQL. Built 2 end-to-end Lakehouse pipelines and dimensional data warehouses.",
+      "badge": "Databricks Badges"
+    },
+    {
       "title": "Software Engineer Intern at Yardi Systems",
       "category": "Enterprise Database Engineering",
       "description": "Engineered enterprise Stored Procedures, SQL packages, CTEs, triggers, and high-performance reporting pipelines for large-scale production database systems.",
-      "badge": "Enterprise Intern"
+      "badge": "Enterprise SQL"
     },
     {
       "title": "TEDx MGMU — Organizing Committee Member",
@@ -74,47 +79,57 @@
     {
       "title": "Academic Distinction — B.Tech IT",
       "category": "MGM University – IICT",
-      "description": "Maintained an impressive 7.9 / 10.0 CGPA throughout coursework in Information Technology while balancing software engineering and industry internships.",
-      "badge": "CGPA 7.9 / 10.0"
+      "description": "Maintained an impressive 7.89 / 10.0 CGPA throughout coursework in Information Technology while balancing software engineering and industry internships.",
+      "badge": "CGPA 7.89 / 10.0"
     }
   ],
   "projects": [
     {
-      "title": "E-Commerce Data Analyst",
-      "category": "Python, MySQL, Data Analytics & Business Intelligence",
+      "title": "Retail Data Warehouse – Medallion Architecture",
+      "category": "Azure Databricks, PySpark, Delta Lake, Star Schema",
       "bullets": [
-        "Processed 10,000+ e-commerce transaction records using Python (Pandas, Matplotlib, Seaborn) and MySQL; engineered data cleaning pipelines to ensure analysis-ready datasets.",
-        "Wrote optimized SQL queries to analyze sales trends, customer segmentation, and purchasing behavior.",
-        "Produced BI-style visualizations and dashboards to communicate key business findings clearly to non-technical stakeholders."
+        "Built a Bronze–Silver–Gold Lakehouse pipeline in PySpark on Azure Databricks (Unity Catalog) over a synthetic retail dataset.",
+        "Engineered Silver-layer data cleansing: type casting, mixed date format resolution, null handling, deduplication, and referential-integrity validation.",
+        "Modeled a Gold-layer dimensional Star Schema (fact sales with product, customer, and store dimensions) and delivered a retail data warehouse dashboard for sales analytics."
       ],
-      "tags": ["Python", "MySQL", "Pandas", "Matplotlib", "Seaborn", "SQL Optimization", "Business Intelligence", "EDA"],
-      "action_label": "View E-Commerce Project on GitHub",
-      "action_url": "https://github.com/PratikModi22/ecommerce-data-analysis"
+      "tags": ["Azure Databricks", "PySpark", "Delta Lake", "Medallion Architecture", "Unity Catalog", "Star Schema", "ETL", "Sales Analytics"],
+      "action_label": "View Retail Data Warehouse on GitHub",
+      "action_url": "https://github.com/PratikModi22/retail-databricks"
     },
     {
-      "title": "Green Hash — Transparent Waste Management System",
-      "category": "Full-Stack, PostgreSQL, Supabase, Agile Delivery",
+      "title": "SkillFlow – Enterprise Data Warehouse",
+      "category": "Python, MySQL, Streamlit, Star Schema, SCD Type 2, ETL",
       "bullets": [
-        "Designed and built a civic-tech platform with Supabase (PostgreSQL) backend, applying RDBMS schema design principles to structure community waste reporting data efficiently.",
-        "Implemented an admin dashboard for waste report management, community data visibility, and real-time status tracking.",
-        "Delivered end-to-end product development using agile practices and iterative engineering sprints."
+        "Engineered a three-tier enterprise data warehouse (3NF OLTP + Kimball Star Schema) seeded with 15,000 employees, 19,900+ SCD Type 2 versions, and 38,000+ appraisals.",
+        "Implemented Slowly Changing Dimensions (SCD Type 2) on dim_employee along with optimized stored procedures for automated delta reconciliation.",
+        "Built an interactive Streamlit analytics dashboard leveraging SQL window functions (LAG, DENSE_RANK) for YoY performance trends, leaderboards, and attrition risk with 4-role RBAC."
       ],
-      "tags": ["Supabase", "PostgreSQL", "Full-Stack", "RDBMS Design", "Agile", "Admin Dashboard", "Civic Tech"],
-      "action_label": "View Green Hash on GitHub",
-      "action_url": "https://github.com/PratikModi22/green-hash"
+      "tags": ["Python", "MySQL", "Streamlit", "Star Schema", "SCD Type 2", "Stored Procedures", "ETL", "Window Functions", "RBAC"],
+      "action_label": "View SkillFlow on GitHub",
+      "action_url": "https://github.com/PratikModi22/SkillFlow"
     }
   ],
   "experience": [
+    {
+      "role": "Data Engineer Intern",
+      "company": "V4C.ai",
+      "location": "Pune, India",
+      "period": "Sept 2026 – Present",
+      "bullets": [
+        "Completed 30 hands-on Medallion Architecture labs on Databricks using PySpark, Delta Lake, and production-grade SQL.",
+        "Built 2 end-to-end projects: scalable Medallion Lakehouse pipelines and dimensional data warehouse architectures.",
+        "Trained extensively across Microsoft Azure, enterprise data warehousing, SQL optimization, Python, and Databricks; earned official Databricks badges."
+      ]
+    },
     {
       "role": "Software Engineer Intern",
       "company": "Yardi Systems India",
       "location": "Pune, India",
       "period": "Jan 2026 – June 2026",
       "bullets": [
-        "Developed Stored Procedures (SP) and SQL packages to automate business logic and reporting workflows, translating functional requirements into reliable and scalable database solutions.",
-        "Wrote advanced queries using CTEs and cursors for complex multi-step data processing, and implemented triggers to enforce business rules and maintain data integrity automatically.",
-        "Built structured reports by joining large relational datasets, applying aggregations, and formatting output to meet business reporting standards.",
-        "Used SSMS and SQL Profiler for query performance tuning, execution plan analysis, and troubleshooting data issues in a production database environment."
+        "Developed SQL packages and Stored Procedures (SP) using CTEs, cursors, and triggers to automate business logic and generate enterprise reports in a production database environment.",
+        "Ensured high data quality and integrity across large-scale relational datasets using optimized joins, aggregations, and validation checks (SSMS, SQL Profiler).",
+        "Translated complex functional business requirements into reliable, production-tested SQL solutions."
       ]
     },
     {
@@ -123,10 +138,8 @@
       "location": "Remote",
       "period": "Oct 2024 – July 2025",
       "bullets": [
-        "Developed and deployed client websites using WordPress and Shopify; built creative carousels, portfolio pages, and landing pages that improved client engagement and brand presence.",
-        "Reviewed large volumes of business and market data to craft data-driven LinkedIn posts, articles, and blogs; communicated insights through compelling storytelling to grow audience engagement.",
-        "Produced technical writing including product documentation, blog posts, and outreach copy; drove SEO strategy and tracked campaign performance using Excel and Odoo CRM.",
-        "Built AI automation workflows using n8n, reducing manual reporting effort and improving operational efficiency across client campaigns."
+        "Built automated AI workflows (n8n), streamlining data tracking for leads and SEO performance metrics in Excel and Odoo CRM.",
+        "Deployed client web platforms (WordPress, Shopify) and authored comprehensive technical documentation and content for SaaS founders."
       ]
     }
   ]

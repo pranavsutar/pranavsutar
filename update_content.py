@@ -75,11 +75,11 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
 
     # Categorized Skills Matrix
     skills = cfg.get("skills", {})
-    languages_tags = "".join([f'<span class="tag">{s}</span>' for s in skills.get("languages", [])])
-    data_bi_tags = "".join([f'<span class="tag">{s}</span>' for s in skills.get("data_and_bi", [])])
-    db_tags = "".join([f'<span class="tag">{s}</span>' for s in skills.get("databases", [])])
+    de_tags = "".join([f'<span class="tag">{s}</span>' for s in skills.get("data_engineering", [])])
+    cloud_tags = "".join([f'<span class="tag">{s}</span>' for s in skills.get("cloud", [])])
+    lang_db_tags = "".join([f'<span class="tag">{s}</span>' for s in skills.get("languages_and_dbs", [])])
+    modeling_bi_tags = "".join([f'<span class="tag">{s}</span>' for s in skills.get("modeling_and_bi", [])])
     tools_tags = "".join([f'<span class="tag">{s}</span>' for s in skills.get("tools", [])])
-    soft_tags = "".join([f'<span class="tag">{s}</span>' for s in skills.get("soft_skills", [])])
 
     # Achievements rendered as aesthetic high-contrast cards
     achievements_html = []
@@ -1051,7 +1051,7 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       <div class="drawer-header">
         <div>
           <div class="drawer-brand-name">Pratik Modi</div>
-          <div class="drawer-brand-role">Data & Full Stack Engineer</div>
+          <div class="drawer-brand-role">Data Engineer | Databricks & PySpark</div>
         </div>
         <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close Navigation Menu">&times;</button>
       </div>
@@ -1205,7 +1205,7 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
         <div class="_content_nnyah_28">
           <h2 class="_heading2_nnyah_41">Introduction & Engineering Profile</h2>
           <p class="_text_nnyah_60">
-            Hi, I am {p["name"]}, based in {p["location"]}. I specialize in SQL, Python, data analytics, and database engineering, translating complex business requirements into robust, high-performance technical solutions and actionable stakeholder reporting.
+            Hi, I am {p["name"]}, based in {p["location"]}. I specialize in Data Engineering, PySpark, Databricks, Azure, and modern Lakehouse data warehousing — building scalable Medallion Architecture pipelines (Bronze-Silver-Gold) and high-performance dimensional data marts from raw ingestion to production BI.
           </p>
 
           <h2 class="_heading2_nnyah_41">Technical Solutions & Enterprise Impact</h2>
@@ -1221,37 +1221,37 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
           <h2 class="_heading2_nnyah_41">Skills & Technical Matrix</h2>
           
           <div class="skill-category">
-            <div class="skill-category-title">Programming & Scripting Languages</div>
+            <div class="skill-category-title">Data Engineering & Lakehouse Architecture</div>
             <div class="tag-container" style="margin-bottom: 0;">
-              {languages_tags}
+              {de_tags}
             </div>
           </div>
 
           <div class="skill-category">
-            <div class="skill-category-title">Data Analytics & Business Intelligence</div>
+            <div class="skill-category-title">Cloud & Big Data Platforms</div>
             <div class="tag-container" style="margin-bottom: 0;">
-              {data_bi_tags}
+              {cloud_tags}
             </div>
           </div>
 
           <div class="skill-category">
-            <div class="skill-category-title">Databases & RDBMS Architecture</div>
+            <div class="skill-category-title">Languages & Production Databases</div>
             <div class="tag-container" style="margin-bottom: 0;">
-              {db_tags}
+              {lang_db_tags}
             </div>
           </div>
 
           <div class="skill-category">
-            <div class="skill-category-title">Developer Tools, AI & Platforms</div>
+            <div class="skill-category-title">Data Modeling & Business Intelligence</div>
+            <div class="tag-container" style="margin-bottom: 0;">
+              {modeling_bi_tags}
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <div class="skill-category-title">Developer Tools, AI & Practices</div>
             <div class="tag-container" style="margin-bottom: 0;">
               {tools_tags}
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <div class="skill-category-title">Professional & Collaborative Skills</div>
-            <div class="tag-container" style="margin-bottom: 0;">
-              {soft_tags}
             </div>
           </div>
         </div>
@@ -1332,7 +1332,7 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
         <div class="_content_nnyah_28">
           <h2 class="_heading2_nnyah_41">Let's Connect & Collaborate</h2>
           <p class="_text_nnyah_60">
-            I am always eager to discuss software engineering, SQL and data analytics opportunities, scalable database architectures, innovative projects, or technical collaborations. Feel free to connect directly:
+            I am always eager to discuss data engineering opportunities, Databricks Lakehouse architectures, PySpark ETL pipelines, Azure cloud infrastructure, or technical collaborations. Feel free to connect directly:
           </p>
           <div style="margin: 1.5rem 0; line-height: 2.2; font-size: 1rem;">
             <p><strong>Location:</strong> {p["location"]}</p>
