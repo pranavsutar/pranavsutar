@@ -1,145 +1,187 @@
 {
   "personal": {
-    "name": "Pratik Modi",
-    "title": "Data Engineer | Databricks, PySpark & Azure",
+    "name": "Pranav Sutar",
+    "title": "AI & Data Engineer | IIT Tirupati",
     "greeting": "Welcome to my 3D space.",
-    "subtitle": "Data Engineer | Databricks & PySpark",
+    "subtitle": "AI & Data Engineer | Data Pipelines & ML",
     "tagline1": "portfolio",
     "tagline2": "",
     "location": "Pune, Maharashtra, India",
-    "email": "pratikgmodi22@gmail.com",
-    "phone": "+91 93228 48562",
-    "linkedin": "https://www.linkedin.com/in/pratik-modi-11ba02283",
-    "github": "https://github.com/PratikModi22",
-    "summary": "Recent B.Tech (IT) graduate (2026) with internship experience in SQL, Python, and enterprise software, now specializing in data engineering — PySpark, Databricks, Azure, and modern Lakehouse / Medallion Architecture. Production SQL engineering and data quality optimization experience from Yardi Systems, Pune. 2× State-Level Hackathon Winner."
+    "email": "pranavsutar666@gmail.com",
+    "phone": "+91-7840929336",
+    "linkedin": "https://www.linkedin.com/in/pranav-sutar/",
+    "github": "https://github.com/pranavsutar",
+    "summary": "CSE graduate from IIT Tirupati working as a Data Engineer at ZS Associates, with hands-on experience building data pipelines, internal tools, and anomaly-detection workflows. Strong academic grounding and practical exploration across classical machine learning, computer vision, NLP, and LLM prompt chaining."
+  },
+  "education": {
+    "degree": "B.Tech in Computer Science and Engineering",
+    "institution": "Indian Institute of Technology Tirupati",
+    "cgpa": "8.81 / 10.0",
+    "period": "Aug 2020 – Jun 2024"
   },
   "certifications": [
-    "Databricks Badges (Lakehouse & Medallion)",
-    "Google Cloud SkillBoost",
-    "Microsoft Learn (Azure & AI)",
-    "Infosys Springboard",
-    "Postman API Fundamentals",
-    "Udemy (SQL & Python)",
-    "2× State-Level Hackathon Winner"
+    "Winner — GEP Techathon 2023",
+    "Grand Finalist — Smart India Hackathon 2022",
+    "3rd Place — Intra IIT Ideathon",
+    "IIT Tirupati CSE Graduate (CGPA 8.81)",
+    "GEP SDE Internship Certificate",
+    "YHills ML with Python Training"
   ],
-  "education": {
-    "degree": "Bachelor of Technology — Information Technology",
-    "institution": "MGM University – IICT, Chh. Sambhajinagar, Maharashtra",
-    "cgpa": "7.89 / 10.0",
-    "period": "2022 – 2026"
-  },
   "skills": {
-    "data_engineering": [
-      "PySpark", "Databricks (Badges)", "Medallion Architecture", "Delta Lake", "ETL Pipelines", "Data Warehousing", "Unity Catalog"
+    "data_engineering_and_cloud": [
+      "Azure Databricks",
+      "AWS S3",
+      "Amazon DocumentDB",
+      "Amazon Redshift",
+      "ETL Pipelines",
+      "Data Ingestion",
+      "REST API Integration",
+      "MySQL",
+      "MongoDB"
     ],
-    "cloud": [
-      "Microsoft Azure", "Azure Databricks", "Azure Data Factory (ADF)", "Azure Data Lake (ADLS Gen2)", "Blob Storage", "GCP (Basics)"
+    "machine_learning_and_ai": [
+      "scikit-learn",
+      "PyTorch",
+      "Anomaly Detection (LOF, Isolation Forest, COPOD)",
+      "PCA (Dimensionality Reduction)",
+      "OpenCV",
+      "Regression Models",
+      "Object Detection (YOLO, Faster R-CNN)",
+      "LangChain",
+      "LLM API Experimentation (Gemini, Grok)"
     ],
-    "languages_and_dbs": [
-      "SQL (SP, CTE, Triggers, Cursors)", "Python (Pandas, NumPy)", "MySQL", "PostgreSQL", "SQL Server"
+    "languages": [
+      "Python",
+      "SQL",
+      "C++",
+      "JavaScript",
+      "TypeScript",
+      "Java",
+      "Shell"
     ],
-    "modeling_and_bi": [
-      "Star Schema", "Kimball Modeling", "SCD Type 2", "RDBMS Design", "EDA", "Power BI (Basics)", "Excel", "Streamlit"
-    ],
-    "tools": [
-      "Git", "GitHub", "Postman", "Jupyter Notebook", "n8n", "VS Code", "Agile / Scrum"
+    "application_dev_and_tools": [
+      "React",
+      "Flask",
+      "MERN Stack",
+      "Angular",
+      "Power Apps",
+      "Power Automate",
+      "Streamlit",
+      "Git",
+      "Linux",
+      "Pandas",
+      "NumPy"
     ]
   },
   "achievements": [
     {
-      "title": "2× State-Level Hackathon Winner",
-      "category": "Competitive Engineering & Prototyping",
-      "description": "Delivered high-impact technological solutions under competitive time pressure; recognized twice across university hackathons for technical design, architecture, and working prototypes.",
-      "badge": "2× State Champion"
+      "title": "Winner — GEP Techathon 2023",
+      "category": "Company-Wide Hackathon Champion",
+      "description": "Awarded 1st place in the GEP Techathon 2023 for designing and developing SalesVision, an interactive multi-model sales forecasting web dashboard.",
+      "badge": "1st Place Winner"
     },
     {
-      "title": "Data Engineer Intern at V4C.ai",
-      "category": "Databricks & Medallion Architecture",
-      "description": "Completed 30 hands-on Medallion Architecture labs on Databricks using PySpark, Delta Lake, and SQL. Built 2 end-to-end Lakehouse pipelines and dimensional data warehouses.",
-      "badge": "Databricks Badges"
+      "title": "Grand Finalist — Smart India Hackathon 2022",
+      "category": "National Level Innovation",
+      "description": "Selected as a Grand Finalist in India's premier nationwide innovation hackathon (SIH 2022) addressing real-world problem statements.",
+      "badge": "Grand Finalist"
     },
     {
-      "title": "Software Engineer Intern at Yardi Systems",
-      "category": "Enterprise Database Engineering",
-      "description": "Engineered enterprise Stored Procedures, SQL packages, CTEs, triggers, and high-performance reporting pipelines for large-scale production database systems.",
-      "badge": "Enterprise SQL"
+      "title": "3rd Place — Intra IIT Ideathon",
+      "category": "IIT Tirupati Entrepreneurship & Ideation",
+      "description": "Recognized with 3rd place in the IIT Tirupati Intra-IIT Ideathon for innovative technical solution design and rapid prototyping.",
+      "badge": "3rd Place"
     },
     {
-      "title": "TEDx MGMU — Organizing Committee Member",
-      "category": "Cross-functional Team & Event Leadership",
-      "description": "Coordinated speakers, schedules, and event logistics for official TEDx sessions; led cross-functional student teams to ensure seamless event execution and high attendee experience.",
-      "badge": "Organizing Committee"
-    },
-    {
-      "title": "Google Developer Student Clubs (GDSC) — Technical Committee",
-      "category": "Technical Workshops & Student Mentorship",
-      "description": "Planned and conducted hands-on programming workshops on Python, web development, and data tools; collaborated with peers to instruct 100+ students.",
-      "badge": "Technical Committee"
-    },
-    {
-      "title": "Academic Distinction — B.Tech IT",
-      "category": "MGM University – IICT",
-      "description": "Maintained an impressive 7.89 / 10.0 CGPA throughout coursework in Information Technology while balancing software engineering and industry internships.",
-      "badge": "CGPA 7.89 / 10.0"
+      "title": "Academic Distinction — IIT Tirupati",
+      "category": "B.Tech Computer Science and Engineering",
+      "description": "Graduated with an 8.81 / 10.0 CGPA from IIT Tirupati, completing rigorous coursework in Machine Learning, Deep Learning, and Artificial Intelligence.",
+      "badge": "CGPA 8.81 / 10.0"
     }
   ],
   "projects": [
     {
-      "title": "Retail Data Warehouse – Medallion Architecture",
-      "category": "Azure Databricks, PySpark, Delta Lake, Star Schema",
+      "title": "LangChain Sanskrit Chhanda / Metric Poetry",
+      "category": "LLM Experimentation, Prompt Chaining & Streamlit",
       "bullets": [
-        "Built a Bronze–Silver–Gold Lakehouse pipeline in PySpark on Azure Databricks (Unity Catalog) over a synthetic retail dataset.",
-        "Engineered Silver-layer data cleansing: type casting, mixed date format resolution, null handling, deduplication, and referential-integrity validation.",
-        "Modeled a Gold-layer dimensional Star Schema (fact sales with product, customer, and store dimensions) and delivered a retail data warehouse dashboard for sales analytics."
+        "Personal exploration using LLMs (Gemini, Grok) to generate Sanskrit verses and iteratively improve alignment with a target chhanda (metre).",
+        "Implemented automated prompt chaining: when generated text fails the metre validation, detailed checker reports are fed back to the LLM for iterative refinement.",
+        "Built a deterministic Python prosody parser for syllable weight (Laghu/Guru) analysis and meter structure checks; deployed interactive demo on Streamlit."
       ],
-      "tags": ["Azure Databricks", "PySpark", "Delta Lake", "Medallion Architecture", "Unity Catalog", "Star Schema", "ETL", "Sales Analytics"],
-      "action_label": "View Retail Data Warehouse on GitHub",
-      "action_url": "https://github.com/PratikModi22/retail-databricks"
+      "tags": ["Python", "LangChain", "Gemini API", "Grok API", "Streamlit", "Prompt Chaining", "NLP"],
+      "action_label": "View Live Streamlit Demo",
+      "action_url": "https://sanskrit-metric-poetry.streamlit.app/"
     },
     {
-      "title": "SkillFlow – Enterprise Data Warehouse",
-      "category": "Python, MySQL, Streamlit, Star Schema, SCD Type 2, ETL",
+      "title": "SalesVision – ML Forecasting Dashboard",
+      "category": "MERN Stack, Flask, Regression Models, React Charts",
       "bullets": [
-        "Engineered a three-tier enterprise data warehouse (3NF OLTP + Kimball Star Schema) seeded with 15,000 employees, 19,900+ SCD Type 2 versions, and 38,000+ appraisals.",
-        "Implemented Slowly Changing Dimensions (SCD Type 2) on dim_employee along with optimized stored procedures for automated delta reconciliation.",
-        "Built an interactive Streamlit analytics dashboard leveraging SQL window functions (LAG, DENSE_RANK) for YoY performance trends, leaderboards, and attrition risk with 4-role RBAC."
+        "Built an interactive end-to-end sales forecasting platform with a MERN stack (MongoDB, Express, React, Node.js) and Flask backend.",
+        "Integrated multiple regression-based forecasting models supporting daily, weekly, and monthly forecasting granularities.",
+        "Created dynamic visualization dashboards enabling multi-model performance comparison over historical sales data (Winner — GEP Techathon 2023)."
       ],
-      "tags": ["Python", "MySQL", "Streamlit", "Star Schema", "SCD Type 2", "Stored Procedures", "ETL", "Window Functions", "RBAC"],
-      "action_label": "View SkillFlow on GitHub",
-      "action_url": "https://github.com/PratikModi22/SkillFlow"
+      "tags": ["MongoDB", "Express", "React", "Node.js", "Flask", "Python", "Regression", "Data Visualization"],
+      "action_label": "View SalesVision on GitHub",
+      "action_url": "https://github.com/pranavsutar/TechathonSalesVision"
+    },
+    {
+      "title": "Sniff CSV – Data Quality Analyzer",
+      "category": "Python, Flask, React, Data Profiling & Quality",
+      "bullets": [
+        "Built a modular web tool to detect 10+ data-quality anomalies in CSV datasets using rule-based and statistical checks.",
+        "Automated the generation of clean Python refactoring scripts and downloadable data health reports.",
+        "Provided dynamic summary charts and issue inspection through a Flask + React user interface."
+      ],
+      "tags": ["Python", "Flask", "React", "CSV Processing", "Data Quality", "Statistical Profiling"],
+      "action_label": "View Sniff CSV on GitHub",
+      "action_url": "https://github.com/pranavsutar/tool_dev"
+    },
+    {
+      "title": "Object Detection Model Benchmarking",
+      "category": "PyTorch, YOLO, Faster R-CNN, Computer Vision",
+      "bullets": [
+        "B.Tech thesis project under Prof. Kalidas at IIT Tirupati, benchmarking object-detection models to explore lighter architectures.",
+        "Explored structural modifications focusing on separating classifier and bounding-box regression heads.",
+        "Conducted in-depth research reviews on object-detection architectures, feature extraction, and computational efficiency."
+      ],
+      "tags": ["PyTorch", "YOLO", "Faster R-CNN", "Python", "Computer Vision", "Deep Learning"],
+      "action_label": "Explore GitHub Profile",
+      "action_url": "https://github.com/pranavsutar"
+    },
+    {
+      "title": "Jan Dhan Darshak – Utility Locator App",
+      "category": "Android Studio, Java, Geolocation & Voice Search",
+      "bullets": [
+        "Contributed feature enhancements to an Android utility-locator application helping citizens locate nearby banking touchpoints.",
+        "Implemented voice search functionality and dynamic dataset upload capabilities.",
+        "Added custom-radius geolocation filters to streamline search precision."
+      ],
+      "tags": ["Java", "Android Studio", "JavaScript", "Geolocation", "Mobile App"],
+      "action_label": "View App Repository on GitHub",
+      "action_url": "https://github.com/devella1/RS1079/"
     }
   ],
   "experience": [
     {
-      "role": "Data Engineer Intern",
-      "company": "V4C.ai",
+      "role": "Data Engineer",
+      "company": "ZS Associates",
       "location": "Pune, India",
-      "period": "Sept 2026 – Present",
+      "period": "June 2024 – Present",
       "bullets": [
-        "Completed 30 hands-on Medallion Architecture labs on Databricks using PySpark, Delta Lake, and production-grade SQL.",
-        "Built 2 end-to-end projects: scalable Medallion Lakehouse pipelines and dimensional data warehouse architectures.",
-        "Trained extensively across Microsoft Azure, enterprise data warehousing, SQL optimization, Python, and Databricks; earned official Databricks badges."
+        "Worked on an anomaly-detection pipeline for clinical datasets using Local Outlier Factor (LOF), Isolation Forest, and COPOD, applying PCA for dimensionality reduction.",
+        "Designed and developed an internal issue-tracking system using Power Apps and Azure Databricks, delivering a reported reduction in debugging turnaround time of ~40%.",
+        "Developed GxP-compliant data-ingestion pipelines integrating REST APIs with AWS S3 and Amazon DocumentDB.",
+        "Integrated Databricks jobs and APIs with Power Automate and user-facing Power Apps workflows."
       ]
     },
     {
-      "role": "Software Engineer Intern",
-      "company": "Yardi Systems India",
-      "location": "Pune, India",
-      "period": "Jan 2026 – June 2026",
+      "role": "SDE Intern",
+      "company": "GEP Worldwide",
+      "location": "Mumbai, India",
+      "period": "May 2023 – Jul 2023",
       "bullets": [
-        "Developed SQL packages and Stored Procedures (SP) using CTEs, cursors, and triggers to automate business logic and generate enterprise reports in a production database environment.",
-        "Ensured high data quality and integrity across large-scale relational datasets using optimized joins, aggregations, and validation checks (SSMS, SQL Profiler).",
-        "Translated complex functional business requirements into reliable, production-tested SQL solutions."
-      ]
-    },
-    {
-      "role": "Web Development & AI Intern",
-      "company": "The Startup Mentor",
-      "location": "Remote",
-      "period": "Oct 2024 – July 2025",
-      "bullets": [
-        "Built automated AI workflows (n8n), streamlining data tracking for leads and SEO performance metrics in Excel and Odoo CRM.",
-        "Deployed client web platforms (WordPress, Shopify) and authored comprehensive technical documentation and content for SaaS founders."
+        "Resolved 14+ UI and accessibility issues across Angular components, improving usability and accessibility including for visually impaired users.",
+        "Worked in an enterprise engineering environment utilizing Angular 8, TypeScript, HTML, CSS, CI/CD, and Linux."
       ]
     }
   ]

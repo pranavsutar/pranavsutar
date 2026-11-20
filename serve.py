@@ -38,7 +38,7 @@ def main():
             with socketserver.TCPServer(("", port), PortfolioHTTPRequestHandler) as httpd:
                 url = f"http://localhost:{port}"
                 print(f"==================================================")
-                print(f"  Pratik Modi's 3D Portfolio Server Running!      ")
+                print(f"  Pranav Sutar's 3D Portfolio Server Running!     ")
                 print(f"  URL: {url}                                      ")
                 print(f"  Root Directory: {DIRECTORY}                     ")
                 print(f"  Press Ctrl+C to stop the server                 ")

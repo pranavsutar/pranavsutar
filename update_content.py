@@ -47,16 +47,27 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
     hero_contact, _ = spanify("contact")
     hero_finally, _ = spanify("finally")
 
-    # Projects
-    proj1 = cfg["projects"][0]
-    proj1_bullets = "".join([f'<div class="project-bullet">{b}</div>' for b in proj1["bullets"]])
-    proj1_tags = "".join([f'<span class="tag">{t}</span>' for t in proj1["tags"]])
-    proj1_btn = make_button(proj1["action_url"], proj1["action_label"], color="works")
-
-    proj2 = cfg["projects"][1]
-    proj2_bullets = "".join([f'<div class="project-bullet">{b}</div>' for b in proj2["bullets"]])
-    proj2_tags = "".join([f'<span class="tag">{t}</span>' for t in proj2["tags"]])
-    proj2_btn = make_button(proj2["action_url"], proj2["action_label"], color="works")
+    # Render all projects dynamically
+    projects_html = []
+    for i, proj in enumerate(cfg.get("projects", [])):
+        bullets = "".join([f'<div class="project-bullet">{b}</div>' for b in proj["bullets"]])
+        tags = "".join([f'<span class="tag">{t}</span>' for t in proj["tags"]])
+        btn_html = ""
+        if "action_url" in proj and "action_label" in proj:
+            btn_html = make_button(proj["action_url"], proj["action_label"], color="works")
+        
+        spacing = 'style="margin-top: 2.8rem;"' if i > 0 else ''
+        projects_html.append(f'''
+          <h2 class="_heading2_nnyah_41" {spacing}>{proj["title"]}</h2>
+          <p class="_text_nnyah_60" style="color: #0d9488; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">
+            {proj["category"]}
+          </p>
+          {bullets}
+          <div class="tag-container">
+            {tags}
+          </div>
+          {btn_html}''')
+    projects_rendered = "\n".join(projects_html)
 
     # Experiences (Dedicated Section)
     exp_html = []
@@ -73,15 +84,28 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
           </div>''')
     experiences_rendered = "\n".join(exp_html)
 
-    # Categorized Skills Matrix
-    skills = cfg.get("skills", {})
-    de_tags = "".join([f'<span class="tag">{s}</span>' for s in skills.get("data_engineering", [])])
-    cloud_tags = "".join([f'<span class="tag">{s}</span>' for s in skills.get("cloud", [])])
-    lang_db_tags = "".join([f'<span class="tag">{s}</span>' for s in skills.get("languages_and_dbs", [])])
-    modeling_bi_tags = "".join([f'<span class="tag">{s}</span>' for s in skills.get("modeling_and_bi", [])])
-    tools_tags = "".join([f'<span class="tag">{s}</span>' for s in skills.get("tools", [])])
+    # Skills Matrix categorized
+    skill_category_titles = {
+        "data_engineering_and_cloud": "Data Engineering & Cloud Platforms",
+        "machine_learning_and_ai": "Machine Learning & AI Engineering",
+        "languages": "Programming Languages",
+        "application_dev_and_tools": "Application Development & Tools"
+    }
+    
+    skills_html = []
+    for cat_key, items in cfg.get("skills", {}).items():
+        cat_title = skill_category_titles.get(cat_key, cat_key.replace("_", " ").title())
+        tags = "".join([f'<span class="tag">{s}</span>' for s in items])
+        skills_html.append(f'''
+          <div class="skill-category">
+            <div class="skill-category-title">{cat_title}</div>
+            <div class="tag-container" style="margin-bottom: 0;">
+              {tags}
+            </div>
+          </div>''')
+    skills_rendered = "\n".join(skills_html)
 
-    # Achievements rendered as aesthetic high-contrast cards
+    # Achievements rendered as aesthetic cards
     achievements_html = []
     for ach in cfg.get("achievements", []):
         achievements_html.append(f'''
@@ -99,8 +123,8 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
     cert_badges_html = "".join([f'<div class="cert-badge">{c}</div>' for c in cfg["certifications"]])
 
     # Contact buttons
-    linkedin_url = p.get("linkedin", "https://www.linkedin.com/in/pratik-modi-11ba02283")
-    github_url = p.get("github", "https://github.com/PratikModi22")
+    linkedin_url = p.get("linkedin", "https://www.linkedin.com/in/pranav-sutar/")
+    github_url = p.get("github", "https://github.com/pranavsutar")
     btn_linkedin = make_button(linkedin_url, "Connect on LinkedIn", color="works")
     btn_github = make_button(github_url, "Explore GitHub", color="contact")
     btn_email = make_button(f'mailto:{p["email"]}', p["email"], color="works", target="_self")
@@ -117,7 +141,7 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
-  <!-- Pinterest Aesthetic Typography: Readable Cursive (Satisfy & Alex Brush) + Modern Pinterest Body (Plus Jakarta Sans) -->
+  <!-- Pinterest Aesthetic Typography: Readable Cursive (Satisfy & Alex Brush) + Modern Body (Plus Jakarta Sans) -->
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Satisfy&display=swap" rel="stylesheet">
   
   <link rel="icon" href="./favicon.ico?v={cache_bust}" sizes="32x32">
@@ -131,9 +155,9 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
   <link rel="stylesheet" href="./_resources/index.70Gwt324.css?v={cache_bust}">
   <style>
     /* ==========================================================================
-       FIGMA COLOR COMBINATIONS:
-       - LIGHT MODE: Combo 8 ("Ink Wash") & Combo 85 ("Frozen Lake")
-       - DARK MODE: Combo 53 ("Cobalt Sky") & Combo 3 ("Blue Eclipse")
+       CYBER JADE & OBSIDIAN EMERALD PALETTE (PRANAV SUTAR):
+       - LIGHT MODE: Crisp Mint & Deep Emerald-Teal (#0d9488, #059669)
+       - DARK MODE: Electric Cyan-Mint & Cyber Jade (#2dd4bf, #34d399)
        ========================================================================== */
     body, html, main, section, div, span, p, a, button, input, textarea {{
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -157,7 +181,7 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       letter-spacing: 0.02em !important;
     }}
 
-    /* Loading Screen (Cobalt Navy & Ice White) */
+    /* Loading Screen (Emerald & Deep Slate) */
     .loading-container {{
       display: flex;
       flex-direction: column;
@@ -176,8 +200,8 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       animation: pulseText 2s ease-in-out infinite alternate;
     }}
     :root[data-theme="dark"] .loading-title {{
-      color: #38bdf8 !important;
-      text-shadow: 0 0 35px rgba(56, 189, 248, 0.6);
+      color: #2dd4bf !important;
+      text-shadow: 0 0 35px rgba(45, 212, 191, 0.6);
     }}
     @keyframes pulseText {{
       0% {{ opacity: 0.88; transform: scale(0.98); }}
@@ -188,11 +212,11 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       font-size: clamp(2rem, 3.5vw, 2.8rem) !important;
       font-weight: 500;
       letter-spacing: 0.03em;
-      color: #1e3a5f !important;
+      color: #064e3b !important;
     }}
     :root[data-theme="dark"] ._greeting_1vzy9_7 {{
-      color: #7dd3fc !important;
-      text-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+      color: #5eead4 !important;
+      text-shadow: 0 0 20px rgba(45, 212, 191, 0.35);
     }}
 
     ._titleJa_1vzy9_8 {{
@@ -204,7 +228,7 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
     }}
     :root[data-theme="dark"] ._titleJa_1vzy9_8 {{
       color: #f8fafc !important;
-      text-shadow: 0 0 35px rgba(56, 189, 248, 0.4);
+      text-shadow: 0 0 35px rgba(45, 212, 191, 0.4);
     }}
 
     ._text_18wwn_40 span,
@@ -214,35 +238,35 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       font-family: 'Satisfy', 'Alex Brush', cursive !important;
     }}
 
-    /* Subtitle: Data and Full Stack Engineer */
+    /* Subtitle: AI and Data Engineer */
     ._desc_1vzy9_10 {{
       font-family: 'Plus Jakarta Sans', sans-serif !important;
       font-size: 1.15rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
-      color: #2563eb !important;
+      color: #0d9488 !important;
       margin-top: 0.5rem !important;
       opacity: 0.95;
     }}
     :root[data-theme="dark"] ._desc_1vzy9_10 {{
-      color: #38bdf8 !important;
-      text-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+      color: #2dd4bf !important;
+      text-shadow: 0 0 20px rgba(45, 212, 191, 0.35);
     }}
 
-    /* High-contrast Section Headings (Cobalt & Slate) */
+    /* High-contrast Section Headings (Deep Emerald & Mint) */
     ._heading2_nnyah_41 {{
       font-size: 2.8rem !important;
       font-weight: 500 !important;
       line-height: 1.35 !important;
       margin-top: 2.4rem;
       margin-bottom: 0.85rem;
-      color: #0f2b48 !important;
+      color: #064e3b !important;
       letter-spacing: 0.02em !important;
     }}
     :root[data-theme="dark"] ._heading2_nnyah_41 {{
-      color: #38bdf8 !important;
-      text-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
+      color: #2dd4bf !important;
+      text-shadow: 0 0 25px rgba(45, 212, 191, 0.35);
     }}
 
     /* Clean, Modern Pinterest Sans-Serif Content */
@@ -268,7 +292,7 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
     }}
 
     /* ========================================================
-       BUTTONS: SINGLE-LAYER TEXT ONLY + AESTHETIC HOVER
+       BUTTONS: TEAL & EMERALD GRADIENT + ACCENT HOVER
        ======================================================== */
     ._hoverClone_kb769_19 {{
       display: none !important;
@@ -298,9 +322,9 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       white-space: nowrap !important;
       box-sizing: border-box !important;
       border-radius: 9999px !important;
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+      background: linear-gradient(135deg, #0d9488 0%, #059669 100%) !important;
       color: #ffffff !important;
-      box-shadow: 0 4px 18px rgba(37, 99, 235, 0.35) !important;
+      box-shadow: 0 4px 18px rgba(13, 148, 136, 0.35) !important;
       transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease !important;
     }}
 
@@ -313,15 +337,15 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
 
     :root[data-theme="dark"] ._body_kb769_13,
     :root[data-theme="dark"] .custom-btn-body {{
-      background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%) !important;
-      color: #0b0f19 !important;
-      box-shadow: 0 4px 22px rgba(56, 189, 248, 0.45) !important;
+      background: linear-gradient(135deg, #2dd4bf 0%, #059669 100%) !important;
+      color: #041c18 !important;
+      box-shadow: 0 4px 22px rgba(45, 212, 191, 0.45) !important;
     }}
 
     :root[data-theme="dark"] [data-color="contact"] .custom-btn-body {{
-      background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%) !important;
-      color: #0b0f19 !important;
-      box-shadow: 0 4px 22px rgba(96, 165, 250, 0.45) !important;
+      background: linear-gradient(135deg, #34d399 0%, #0d9488 100%) !important;
+      color: #041c18 !important;
+      box-shadow: 0 4px 22px rgba(52, 211, 153, 0.45) !important;
     }}
 
     ._inner_kb769_46,
@@ -351,7 +375,7 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
 
     .custom-btn:hover ._body_kb769_13 {{
       transform: translateY(-2px) scale(1.02) !important;
-      box-shadow: 0 8px 28px rgba(37, 99, 235, 0.5) !important;
+      box-shadow: 0 8px 28px rgba(13, 148, 136, 0.5) !important;
     }}
 
     [data-color="contact"].custom-btn:hover ._body_kb769_13 {{
@@ -359,11 +383,11 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
     }}
 
     :root[data-theme="dark"] .custom-btn:hover ._body_kb769_13 {{
-      box-shadow: 0 8px 32px rgba(56, 189, 248, 0.65) !important;
+      box-shadow: 0 8px 32px rgba(45, 212, 191, 0.65) !important;
     }}
 
     :root[data-theme="dark"] [data-color="contact"].custom-btn:hover ._body_kb769_13 {{
-      box-shadow: 0 8px 32px rgba(96, 165, 250, 0.65) !important;
+      box-shadow: 0 8px 32px rgba(52, 211, 153, 0.65) !important;
     }}
 
     .custom-btn:hover .custom-btn-icon svg {{
@@ -385,27 +409,27 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       font-weight: 600 !important;
       letter-spacing: 0.03em;
       border-radius: 9999px;
-      background: rgba(15, 23, 42, 0.04);
-      border: 1px solid rgba(15, 23, 42, 0.12);
+      background: rgba(13, 148, 136, 0.06);
+      border: 1px solid rgba(13, 148, 136, 0.2);
       color: #0f172a;
       backdrop-filter: blur(6px);
       transition: all 0.25s ease;
     }}
     :root[data-theme="dark"] .tag {{
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      color: #f8fafc;
+      background: rgba(45, 212, 191, 0.08);
+      border: 1px solid rgba(45, 212, 191, 0.25);
+      color: #f1f5f9;
     }}
     .tag:hover {{
       transform: translateY(-2px);
-      background: rgba(37, 99, 235, 0.08);
-      border-color: #2563eb;
-      color: #2563eb;
+      background: rgba(13, 148, 136, 0.14);
+      border-color: #0d9488;
+      color: #0d9488;
     }}
     :root[data-theme="dark"] .tag:hover {{
-      background: rgba(56, 189, 248, 0.2);
-      border-color: #38bdf8;
-      color: #38bdf8;
+      background: rgba(45, 212, 191, 0.22);
+      border-color: #2dd4bf;
+      color: #2dd4bf;
     }}
 
     /* Categorized Skill Showcase Cards */
@@ -413,64 +437,62 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       margin-bottom: 1.4rem;
       padding: 1.35rem 1.6rem;
       background: #ffffff;
-      border: 1px solid rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(13, 148, 136, 0.12);
       border-radius: 18px;
       box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
       transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }}
     :root[data-theme="dark"] .skill-category {{
-      background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(15, 23, 42, 0.78);
+      border: 1px solid rgba(45, 212, 191, 0.2);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
       backdrop-filter: blur(12px);
     }}
     .skill-category:hover {{
       transform: translateY(-3px);
-      border-color: #2563eb;
-      box-shadow: 0 10px 28px rgba(37, 99, 235, 0.14);
+      border-color: #0d9488;
+      box-shadow: 0 10px 28px rgba(13, 148, 136, 0.16);
     }}
     :root[data-theme="dark"] .skill-category:hover {{
-      border-color: #38bdf8;
-      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.25);
+      border-color: #2dd4bf;
+      box-shadow: 0 10px 30px rgba(45, 212, 191, 0.25);
     }}
     .skill-category-title {{
       font-size: 2.2rem !important;
       font-weight: 500 !important;
       margin-bottom: 0.65rem;
-      color: #0f2b48;
+      color: #064e3b;
       letter-spacing: 0.02em;
     }}
     :root[data-theme="dark"] .skill-category-title {{
-      color: #38bdf8;
-      text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+      color: #2dd4bf;
+      text-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
     }}
 
-    /* ========================================================
-       ACHIEVEMENTS CARDS: HIGH CONTRAST & FULLY VISIBLE HEADINGS
-       ======================================================== */
+    /* Achievements Cards */
     .achievement-card {{
       margin-bottom: 1.4rem;
       padding: 1.4rem 1.7rem;
       background: #ffffff !important;
-      border: 1px solid rgba(15, 23, 42, 0.08) !important;
+      border: 1px solid rgba(13, 148, 136, 0.12) !important;
       border-radius: 18px;
       box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04) !important;
       transition: all 0.3s ease;
     }}
     .achievement-card:hover {{
       transform: translateY(-3px);
-      border-color: #2563eb !important;
-      box-shadow: 0 10px 28px rgba(37, 99, 235, 0.16) !important;
+      border-color: #0d9488 !important;
+      box-shadow: 0 10px 28px rgba(13, 148, 136, 0.16) !important;
     }}
     :root[data-theme="dark"] .achievement-card {{
-      background: rgba(15, 23, 42, 0.75) !important;
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      background: rgba(15, 23, 42, 0.78) !important;
+      border: 1px solid rgba(45, 212, 191, 0.2) !important;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35) !important;
       backdrop-filter: blur(12px);
     }}
     :root[data-theme="dark"] .achievement-card:hover {{
-      border-color: #38bdf8 !important;
-      box-shadow: 0 12px 32px rgba(56, 189, 248, 0.28) !important;
+      border-color: #2dd4bf !important;
+      box-shadow: 0 12px 32px rgba(45, 212, 191, 0.28) !important;
     }}
 
     .achievement-header {{
@@ -500,26 +522,26 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       letter-spacing: 0.05em;
       padding: 0.32rem 0.9rem;
       border-radius: 9999px;
-      background: rgba(37, 99, 235, 0.08) !important;
-      border: 1px solid rgba(37, 99, 235, 0.25) !important;
-      color: #1d4ed8 !important;
+      background: rgba(13, 148, 136, 0.1) !important;
+      border: 1px solid rgba(13, 148, 136, 0.3) !important;
+      color: #0f766e !important;
     }}
     :root[data-theme="dark"] .achievement-badge {{
-      background: rgba(56, 189, 248, 0.15) !important;
-      border: 1px solid rgba(56, 189, 248, 0.4) !important;
-      color: #7dd3fc !important;
+      background: rgba(45, 212, 191, 0.15) !important;
+      border: 1px solid rgba(45, 212, 191, 0.4) !important;
+      color: #5eead4 !important;
     }}
 
     .achievement-category {{
       font-size: 0.88rem;
-      color: #2563eb !important;
+      color: #0d9488 !important;
       margin-bottom: 0.55rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }}
     :root[data-theme="dark"] .achievement-category {{
-      color: #38bdf8 !important;
+      color: #2dd4bf !important;
     }}
 
     .achievement-desc {{
@@ -535,25 +557,25 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       margin-bottom: 1.6rem;
       padding: 1.35rem 1.65rem;
       background: #ffffff;
-      border: 1px solid rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(13, 148, 136, 0.12);
       border-radius: 18px;
       box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
       transition: all 0.3s ease;
     }}
     .exp-item:hover {{
       transform: translateY(-3px);
-      border-color: #2563eb;
-      box-shadow: 0 10px 28px rgba(37, 99, 235, 0.14);
+      border-color: #0d9488;
+      box-shadow: 0 10px 28px rgba(13, 148, 136, 0.16);
     }}
     :root[data-theme="dark"] .exp-item {{
-      background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(15, 23, 42, 0.78);
+      border: 1px solid rgba(45, 212, 191, 0.2);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
       backdrop-filter: blur(12px);
     }}
     :root[data-theme="dark"] .exp-item:hover {{
-      border-color: #38bdf8;
-      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.25);
+      border-color: #2dd4bf;
+      box-shadow: 0 10px 30px rgba(45, 212, 191, 0.25);
     }}
     .exp-header {{
       display: flex;
@@ -584,12 +606,12 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       font-size: 0.95rem;
       font-weight: 700;
       margin-bottom: 0.65rem;
-      color: #2563eb !important;
+      color: #0d9488 !important;
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }}
     :root[data-theme="dark"] .exp-company {{
-      color: #38bdf8 !important;
+      color: #2dd4bf !important;
     }}
     .project-bullet {{
       position: relative;
@@ -604,11 +626,11 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       position: absolute;
       left: 0;
       top: 0;
-      color: #2563eb;
+      color: #0d9488;
       font-weight: 800;
     }}
     :root[data-theme="dark"] .project-bullet::before {{
-      color: #38bdf8;
+      color: #2dd4bf;
     }}
     .cert-badge {{
       display: inline-flex;
@@ -620,31 +642,31 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       font-size: 0.82rem;
       font-weight: 600;
       letter-spacing: 0.03em;
-      background: rgba(37, 99, 235, 0.08);
-      border: 1px solid rgba(37, 99, 235, 0.25);
-      color: #1d4ed8;
+      background: rgba(13, 148, 136, 0.1);
+      border: 1px solid rgba(13, 148, 136, 0.28);
+      color: #0f766e;
     }}
     :root[data-theme="dark"] .cert-badge {{
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      color: #f8fafc;
+      background: rgba(45, 212, 191, 0.12);
+      border: 1px solid rgba(45, 212, 191, 0.35);
+      color: #f1f5f9;
     }}
 
     /* Contact Links */
     .contact-link {{
-      color: #2563eb !important;
+      color: #0d9488 !important;
       text-decoration: underline !important;
       font-weight: 700 !important;
       transition: color 0.2s ease;
     }}
     .contact-link:hover {{
-      color: #1d4ed8 !important;
+      color: #059669 !important;
     }}
     :root[data-theme="dark"] .contact-link {{
-      color: #38bdf8 !important;
+      color: #2dd4bf !important;
     }}
     :root[data-theme="dark"] .contact-link:hover {{
-      color: #7dd3fc !important;
+      color: #5eead4 !important;
     }}
 
     /* ========================================================
@@ -660,8 +682,8 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       gap: 10px;
       padding: 10px 18px;
       border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(15, 23, 42, 0.1);
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(13, 148, 136, 0.2);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       color: #0f172a;
@@ -678,9 +700,9 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
     .nav-toggle-btn:hover {{
       transform: translateY(-2px);
       background: rgba(255, 255, 255, 0.95);
-      border-color: #2563eb;
-      color: #2563eb;
-      box-shadow: 0 6px 24px rgba(37, 99, 235, 0.22);
+      border-color: #0d9488;
+      color: #0d9488;
+      box-shadow: 0 6px 24px rgba(13, 148, 136, 0.22);
     }}
     .nav-toggle-btn .hamburger-icon {{
       display: flex;
@@ -698,23 +720,23 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       transition: all 0.25s ease;
     }}
     :root[data-theme="dark"] .nav-toggle-btn {{
-      background: rgba(15, 23, 42, 0.72);
-      border: 1px solid rgba(56, 189, 248, 0.25);
+      background: rgba(15, 23, 42, 0.78);
+      border: 1px solid rgba(45, 212, 191, 0.28);
       color: #f8fafc;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
     }}
     :root[data-theme="dark"] .nav-toggle-btn:hover {{
-      background: rgba(15, 23, 42, 0.92);
-      border-color: #38bdf8;
-      color: #38bdf8;
-      box-shadow: 0 6px 24px rgba(56, 189, 248, 0.35);
+      background: rgba(15, 23, 42, 0.94);
+      border-color: #2dd4bf;
+      color: #2dd4bf;
+      box-shadow: 0 6px 24px rgba(45, 212, 191, 0.35);
     }}
 
     /* Backdrop */
     .nav-backdrop {{
       position: fixed;
       inset: 0;
-      background: rgba(11, 15, 25, 0.45);
+      background: rgba(9, 14, 19, 0.55);
       backdrop-filter: blur(5px);
       -webkit-backdrop-filter: blur(5px);
       z-index: 9998;
@@ -736,10 +758,10 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       max-width: 88vw;
       height: 100vh;
       height: 100dvh;
-      background: rgba(248, 250, 252, 0.92);
+      background: rgba(248, 250, 252, 0.94);
       backdrop-filter: blur(28px);
       -webkit-backdrop-filter: blur(28px);
-      border-right: 1px solid rgba(15, 23, 42, 0.1);
+      border-right: 1px solid rgba(13, 148, 136, 0.15);
       z-index: 9999;
       display: flex;
       flex-direction: column;
@@ -752,8 +774,8 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       overflow-y: auto;
     }}
     :root[data-theme="dark"] .side-nav-drawer {{
-      background: rgba(11, 15, 25, 0.92);
-      border-right: 1px solid rgba(56, 189, 248, 0.22);
+      background: rgba(9, 14, 19, 0.94);
+      border-right: 1px solid rgba(45, 212, 191, 0.25);
       box-shadow: 16px 0 40px rgba(0, 0, 0, 0.6);
     }}
     .side-nav-drawer.open {{
@@ -785,11 +807,11 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #2563eb;
+      color: #0d9488;
       margin-top: 4px;
     }}
     :root[data-theme="dark"] .drawer-brand-role {{
-      color: #38bdf8;
+      color: #2dd4bf;
     }}
 
     .drawer-close-btn {{
@@ -808,8 +830,8 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       line-height: 1;
     }}
     .drawer-close-btn:hover {{
-      background: rgba(37, 99, 235, 0.12);
-      color: #2563eb;
+      background: rgba(13, 148, 136, 0.15);
+      color: #0d9488;
       transform: rotate(90deg);
     }}
     :root[data-theme="dark"] .drawer-close-btn {{
@@ -818,8 +840,8 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       color: #f8fafc;
     }}
     :root[data-theme="dark"] .drawer-close-btn:hover {{
-      background: rgba(56, 189, 248, 0.2);
-      color: #38bdf8;
+      background: rgba(45, 212, 191, 0.2);
+      color: #2dd4bf;
     }}
 
     .drawer-nav-list {{
@@ -843,25 +865,25 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
     }}
     .drawer-nav-item:hover,
     .drawer-nav-item.active {{
-      background: rgba(37, 99, 235, 0.09);
-      color: #2563eb !important;
+      background: rgba(13, 148, 136, 0.1);
+      color: #0d9488 !important;
       transform: translateX(4px);
     }}
     :root[data-theme="dark"] .drawer-nav-item:hover,
     :root[data-theme="dark"] .drawer-nav-item.active {{
-      background: rgba(56, 189, 248, 0.14);
-      color: #38bdf8 !important;
+      background: rgba(45, 212, 191, 0.14);
+      color: #2dd4bf !important;
     }}
     .drawer-nav-num {{
       font-size: 0.8rem;
       font-weight: 800;
-      color: #2563eb;
+      color: #0d9488;
       margin-right: 14px;
       letter-spacing: 0.05em;
       opacity: 0.85;
     }}
     :root[data-theme="dark"] .drawer-nav-num {{
-      color: #38bdf8;
+      color: #2dd4bf;
     }}
 
     .drawer-footer {{
@@ -894,20 +916,20 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       transition: all 0.2s ease;
     }}
     .drawer-social-btn:hover {{
-      background: #2563eb;
-      border-color: #2563eb;
+      background: #0d9488;
+      border-color: #0d9488;
       color: #ffffff;
       transform: translateY(-2px);
     }}
     :root[data-theme="dark"] .drawer-social-btn {{
       background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(56, 189, 248, 0.25);
+      border-color: rgba(45, 212, 191, 0.25);
       color: #f8fafc;
     }}
     :root[data-theme="dark"] .drawer-social-btn:hover {{
-      background: #38bdf8;
-      border-color: #38bdf8;
-      color: #0b0f19;
+      background: #2dd4bf;
+      border-color: #2dd4bf;
+      color: #041c18;
     }}
     .drawer-copy {{
       font-size: 0.75rem;
@@ -1050,8 +1072,8 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
     <div>
       <div class="drawer-header">
         <div>
-          <div class="drawer-brand-name">Pratik Modi</div>
-          <div class="drawer-brand-role">Data Engineer | Databricks & PySpark</div>
+          <div class="drawer-brand-name">{p["name"]}</div>
+          <div class="drawer-brand-role">{p["subtitle"]}</div>
         </div>
         <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close Navigation Menu">&times;</button>
       </div>
@@ -1089,14 +1111,14 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
           <span>GitHub</span> &#8599;
         </a>
       </div>
-      <div class="drawer-copy">&copy; 2026 Pratik Modi. 3D Isometric Portfolio.</div>
+      <div class="drawer-copy">&copy; 2026 {p["name"]}. 3D Isometric Portfolio.</div>
     </div>
   </aside>
 
   <!-- Loading Screen with Custom Text -->
   <div class="_loading_1dbn7_1" data-visible="true" data-js="loading">
     <div class="loading-container">
-      <p class="loading-title">hi i am pratik</p>
+      <p class="loading-title">hi i am {p["name"].split()[0].lower()}</p>
       <div class="_progress_1dbn7_20">
         <div class="_bar_1dbn7_32" data-js="loading-bar"></div>
       </div>
@@ -1205,7 +1227,7 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
         <div class="_content_nnyah_28">
           <h2 class="_heading2_nnyah_41">Introduction & Engineering Profile</h2>
           <p class="_text_nnyah_60">
-            Hi, I am {p["name"]}, based in {p["location"]}. I specialize in Data Engineering, PySpark, Databricks, Azure, and modern Lakehouse data warehousing — building scalable Medallion Architecture pipelines (Bronze-Silver-Gold) and high-performance dimensional data marts from raw ingestion to production BI.
+            Hi, I am {p["name"]}, based in {p["location"]}. I am a CSE graduate from IIT Tirupati working as a Data Engineer at ZS Associates. I specialize in building robust data ingestion pipelines, cloud-native internal tooling, and anomaly-detection workflows, combined with extensive exploration across machine learning, computer vision, and LLM applications.
           </p>
 
           <h2 class="_heading2_nnyah_41">Technical Solutions & Enterprise Impact</h2>
@@ -1215,45 +1237,11 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
 
           <h2 class="_heading2_nnyah_41">Education & Foundation</h2>
           <p class="_text_nnyah_60">
-            {cfg["education"]["degree"]} — {cfg["education"]["institution"]} (CGPA: {cfg["education"]["cgpa"]} | {cfg["education"]["period"]}). Active technical leader, TEDx organizer, and 2× state-level hackathon winner passionate about scalable systems and data intelligence.
+            {cfg["education"]["degree"]} — {cfg["education"]["institution"]} (CGPA: {cfg["education"]["cgpa"]} | {cfg["education"]["period"]}). Coursework in Machine Learning, Deep Learning, and Artificial Intelligence, with an academic thesis benchmark exploring object detection architectures.
           </p>
 
           <h2 class="_heading2_nnyah_41">Skills & Technical Matrix</h2>
-          
-          <div class="skill-category">
-            <div class="skill-category-title">Data Engineering & Lakehouse Architecture</div>
-            <div class="tag-container" style="margin-bottom: 0;">
-              {de_tags}
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <div class="skill-category-title">Cloud & Big Data Platforms</div>
-            <div class="tag-container" style="margin-bottom: 0;">
-              {cloud_tags}
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <div class="skill-category-title">Languages & Production Databases</div>
-            <div class="tag-container" style="margin-bottom: 0;">
-              {lang_db_tags}
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <div class="skill-category-title">Data Modeling & Business Intelligence</div>
-            <div class="tag-container" style="margin-bottom: 0;">
-              {modeling_bi_tags}
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <div class="skill-category-title">Developer Tools, AI & Practices</div>
-            <div class="tag-container" style="margin-bottom: 0;">
-              {tools_tags}
-            </div>
-          </div>
+          {skills_rendered}
         </div>
       </section>
 
@@ -1273,25 +1261,7 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
           <span class="_number_18wwn_70">02</span>
         </div>
         <div class="_content_nnyah_28">
-          <h2 class="_heading2_nnyah_41">{proj1["title"]}</h2>
-          <p class="_text_nnyah_60" style="color: #2563eb; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">
-            {proj1["category"]}
-          </p>
-          {proj1_bullets}
-          <div class="tag-container">
-            {proj1_tags}
-          </div>
-          {proj1_btn}
-
-          <h2 class="_heading2_nnyah_41" style="margin-top: 2.4rem;">{proj2["title"]}</h2>
-          <p class="_text_nnyah_60" style="color: #2563eb; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">
-            {proj2["category"]}
-          </p>
-          {proj2_bullets}
-          <div class="tag-container">
-            {proj2_tags}
-          </div>
-          {proj2_btn}
+          {projects_rendered}
         </div>
       </section>
 
@@ -1332,7 +1302,7 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
         <div class="_content_nnyah_28">
           <h2 class="_heading2_nnyah_41">Let's Connect & Collaborate</h2>
           <p class="_text_nnyah_60">
-            I am always eager to discuss data engineering opportunities, Databricks Lakehouse architectures, PySpark ETL pipelines, Azure cloud infrastructure, or technical collaborations. Feel free to connect directly:
+            I am always open to discussing data engineering pipelines, cloud systems, machine learning architectures, LLM prompt engineering, or technical collaborations. Feel free to reach out directly:
           </p>
           <div style="margin: 1.5rem 0; line-height: 2.2; font-size: 1rem;">
             <p><strong>Location:</strong> {p["location"]}</p>
@@ -1367,7 +1337,7 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
           <p class="_text_akfz3_38" style="font-size: 1.15rem !important; line-height: 1.8;">
             Thank you for exploring my 3D isometric portfolio room.
             <br>
-            I hope this interactive experience was engaging and demonstrated my technical capabilities!
+            I hope this interactive experience was engaging and demonstrated my engineering capabilities!
           </p>
           <div style="margin: 1.5rem 0;">
             {cert_badges_html}
@@ -1461,7 +1431,7 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(html_content)
 
-    print(f"Successfully compiled {config_path} into {output_path} with Figma Ink Wash & Cobalt Sky palette!")
+    print(f"Successfully compiled {config_path} into {output_path} with Cyber Jade & Obsidian Emerald palette!")
 
 if __name__ == "__main__":
     generate_html_from_config()
