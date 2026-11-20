@@ -732,6 +732,113 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
       box-shadow: 0 6px 24px rgba(45, 212, 191, 0.35);
     }}
 
+    /* Floating Room Color Selector Pill */
+    .room-color-pill {{
+      position: fixed;
+      top: 36px;
+      right: 140px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(13, 148, 136, 0.2);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      color: #0f172a;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      user-select: none;
+    }}
+    .room-color-pill:hover {{
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.95);
+      border-color: #0d9488;
+      box-shadow: 0 6px 24px rgba(13, 148, 136, 0.22);
+    }}
+    :root[data-theme="dark"] .room-color-pill {{
+      background: rgba(15, 23, 42, 0.78);
+      border: 1px solid rgba(45, 212, 191, 0.28);
+      color: #f8fafc;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+    }}
+    :root[data-theme="dark"] .room-color-pill:hover {{
+      background: rgba(15, 23, 42, 0.94);
+      border-color: #2dd4bf;
+      box-shadow: 0 6px 24px rgba(45, 212, 191, 0.35);
+    }}
+    .color-dot {{
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 8px currentColor;
+    }}
+    .room-color-dropdown {{
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      width: 220px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(13, 148, 136, 0.2);
+      border-radius: 16px;
+      padding: 8px;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.16);
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 1001;
+      opacity: 0;
+      transform: translateY(-8px);
+      transition: all 0.2s ease;
+    }}
+    .room-color-dropdown.show {{
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }}
+    :root[data-theme="dark"] .room-color-dropdown {{
+      background: rgba(15, 23, 42, 0.95);
+      border-color: rgba(45, 212, 191, 0.3);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+    }}
+    .color-opt {{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--color-text);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }}
+    .color-opt:hover, .color-opt.active {{
+      background: rgba(13, 148, 136, 0.12);
+      color: #0d9488 !important;
+    }}
+    :root[data-theme="dark"] .color-opt:hover, :root[data-theme="dark"] .color-opt.active {{
+      background: rgba(45, 212, 191, 0.16);
+      color: #2dd4bf !important;
+    }}
+    .opt-dot {{
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }}
+
     /* Backdrop */
     .nav-backdrop {{
       position: fixed;
@@ -887,7 +994,7 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
     }}
 
     .drawer-footer {{
-      margin-top: 2rem;
+      margin-top: 1.6rem;
       padding-top: 1.2rem;
       border-top: 1px solid rgba(15, 23, 42, 0.08);
     }}
@@ -952,6 +1059,16 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
         width: 15px;
         height: 12px;
         gap: 3px;
+      }}
+      .room-color-pill {{
+        top: 20px;
+        right: 76px;
+        padding: 7px 11px;
+        font-size: 0.74rem;
+        gap: 6px;
+      }}
+      .color-pill-label {{
+        display: none;
       }}
       
       ._titleJa_1vzy9_8 {{
@@ -1064,6 +1181,35 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
     <span>Menu</span>
   </button>
 
+  <!-- Floating Room Color Selector Pill -->
+  <div class="room-color-pill" id="room-color-pill" aria-label="Change 3D Room Color">
+    <span class="color-dot" id="color-pill-dot" style="background: #0d9488;"></span>
+    <span class="color-pill-label">Room Color</span>
+    <div class="room-color-dropdown" id="room-color-dropdown">
+      <div class="color-opt active" data-color="#0d9488" data-dark="#0f766e" data-carpet="#10b981">
+        <span class="opt-dot" style="background: #0d9488;"></span> Cyber Jade (Default)
+      </div>
+      <div class="color-opt" data-color="#059669" data-dark="#047857" data-carpet="#34d399">
+        <span class="opt-dot" style="background: #059669;"></span> Forest Emerald
+      </div>
+      <div class="color-opt" data-color="#0284c7" data-dark="#0369a1" data-carpet="#38bdf8">
+        <span class="opt-dot" style="background: #0284c7;"></span> Ocean Cyan
+      </div>
+      <div class="color-opt" data-color="#7c3aed" data-dark="#5b21b6" data-carpet="#a855f7">
+        <span class="opt-dot" style="background: #7c3aed;"></span> Royal Violet
+      </div>
+      <div class="color-opt" data-color="#d97706" data-dark="#b45309" data-carpet="#f59e0b">
+        <span class="opt-dot" style="background: #d97706;"></span> Sunset Amber
+      </div>
+      <div class="color-opt" data-color="#e11d48" data-dark="#be123c" data-carpet="#f43f5e">
+        <span class="opt-dot" style="background: #e11d48;"></span> Crimson Rose
+      </div>
+      <div class="color-opt" data-color="#334155" data-dark="#1e293b" data-carpet="#64748b">
+        <span class="opt-dot" style="background: #334155;"></span> Obsidian Slate
+      </div>
+    </div>
+  </div>
+
   <!-- Side Menu Backdrop -->
   <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
 
@@ -1100,6 +1246,22 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
           <span>Contact</span>
         </a>
       </nav>
+
+      <!-- Room Color Swatches inside Drawer -->
+      <div style="margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid rgba(15, 23, 42, 0.08);">
+        <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #0d9488; margin-bottom: 0.75rem;">
+          3D Room Accent Color
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button class="color-swatch active" data-color="#0d9488" data-dark="#0f766e" data-carpet="#10b981" title="Cyber Jade (Default)" style="width: 28px; height: 28px; border-radius: 50%; border: 2px solid #ffffff; box-shadow: 0 0 0 2px #0d9488; cursor: pointer; background: #0d9488;"></button>
+          <button class="color-swatch" data-color="#059669" data-dark="#047857" data-carpet="#34d399" title="Forest Emerald" style="width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; background: #059669;"></button>
+          <button class="color-swatch" data-color="#0284c7" data-dark="#0369a1" data-carpet="#38bdf8" title="Ocean Cyan" style="width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; background: #0284c7;"></button>
+          <button class="color-swatch" data-color="#7c3aed" data-dark="#5b21b6" data-carpet="#a855f7" title="Royal Violet" style="width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; background: #7c3aed;"></button>
+          <button class="color-swatch" data-color="#d97706" data-dark="#b45309" data-carpet="#f59e0b" title="Sunset Amber" style="width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; background: #d97706;"></button>
+          <button class="color-swatch" data-color="#e11d48" data-dark="#be123c" data-carpet="#f43f5e" title="Crimson Rose" style="width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; background: #e11d48;"></button>
+          <button class="color-swatch" data-color="#334155" data-dark="#1e293b" data-carpet="#64748b" title="Obsidian Slate" style="width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; background: #334155;"></button>
+        </div>
+      </div>
     </div>
 
     <div class="drawer-footer">
@@ -1419,6 +1581,67 @@ def generate_html_from_config(config_path="portfolio.config.json", output_path="
           }}
         }});
       }});
+
+      // Room color selector controller
+      const colorPill = document.getElementById('room-color-pill');
+      const colorDropdown = document.getElementById('room-color-dropdown');
+      const pillDot = document.getElementById('color-pill-dot');
+      const colorOptions = document.querySelectorAll('.color-opt, .color-swatch');
+
+      function applyRoomColor(accent, dark, carpet) {{
+        if (window.setRoomColor) {{
+          window.setRoomColor(accent, dark, carpet);
+        }}
+        window.__activeRoomColor = accent;
+        if (pillDot) pillDot.style.background = accent;
+        document.documentElement.style.setProperty('--color-primary', accent);
+        if (dark) document.documentElement.style.setProperty('--color-secondary', dark);
+
+        document.querySelectorAll('.color-opt').forEach(opt => {{
+          opt.classList.toggle('active', opt.getAttribute('data-color') === accent);
+        }});
+        document.querySelectorAll('.color-swatch').forEach(sw => {{
+          const isActive = sw.getAttribute('data-color') === accent;
+          sw.style.boxShadow = isActive ? '0 0 0 2px ' + accent : 'none';
+          sw.style.border = isActive ? '2px solid #ffffff' : '2px solid transparent';
+        }});
+
+        try {{
+          localStorage.setItem('portfolio_room_color', JSON.stringify({{ accent, dark, carpet }}));
+        }} catch(e) {{}}
+      }}
+
+      if (colorPill && colorDropdown) {{
+        colorPill.addEventListener('click', function(e) {{
+          e.stopPropagation();
+          colorDropdown.classList.toggle('show');
+        }});
+
+        document.addEventListener('click', function(e) {{
+          if (!colorPill.contains(e.target)) {{
+            colorDropdown.classList.remove('show');
+          }}
+        }});
+      }}
+
+      colorOptions.forEach(opt => {{
+        opt.addEventListener('click', function(e) {{
+          e.stopPropagation();
+          const accent = this.getAttribute('data-color');
+          const dark = this.getAttribute('data-dark');
+          const carpet = this.getAttribute('data-carpet');
+          applyRoomColor(accent, dark, carpet);
+          if (colorDropdown) colorDropdown.classList.remove('show');
+        }});
+      }});
+
+      // Restore saved room color on load
+      try {{
+        const saved = JSON.parse(localStorage.getItem('portfolio_room_color') || 'null');
+        if (saved && saved.accent) {{
+          setTimeout(() => applyRoomColor(saved.accent, saved.dark, saved.carpet), 250);
+        }}
+      }} catch(e) {{}}
     }})();
   </script>
 
